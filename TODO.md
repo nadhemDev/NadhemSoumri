@@ -1,11 +1,11 @@
-# Fix Tailwind/Turbopack Error - TODO
+# TODO (BlackboxAI) — Portfolio Refactor
 
-- [x] Step 1: Cleared .next cache
-- [x] Step 2: Reverted next.config.ts (clean, no TS errors)
-- [ ] Step 3: Run `npm run dev -- --no-turbo` 
-- [ ] Step 4: Verify http://localhost:3000 no errors
-- [ ] Step 5: Mark complete
-- [x] Step 1: Edit next.config.ts to disable Turbopack (experimental: { turbopack: false })
-- [x] Step 2: Clear .next cache (Remove-Item -Recurse -Force .next)
-- [ ] Step 3: Restart dev server (npm run dev)
-- [ ] Step 4: Verify app loads without CSS errors at http://localhost:3000  
+- [x] 1) Synchronize light/dark theme across Hero, Projects, CV, Workflow, Footer, Contact section
+
+- [ ] 2) Hero: exact headline typing + phrase shuffle + avatar glass/neon hover micro-interaction using /images/nadhem.png
+- [ ] 3) CV: terminal-style career summary + download href update to /images/Nadhem_Soumri_Resume_v2.pdf
+- [ ] 4) Projects: update data/links/text exactly + refactor cards into premium interactive mockup/glow design; use chat_boot_ia.png for card 3
+- [ ] 5) Workflow: keep 4-step pipeline wording; ensure theme-safe UI
+- [ ] 6) Footer: map GitHub + LinkedIn links exactly
+- [ ] 7) Optimize framer-motion/CSS transitions for smoothness/perf; then run lint/build
+

@@ -10,43 +10,77 @@ export default function Hero() {
   const [text, setText] = useState('');
   const [phraseIndex, setPhraseIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
-  const [delta, setDelta] = useState(100);
+  const [delta, setDelta] = useState(90);
+
+  const [typedHeadline, setTypedHeadline] = useState('');
+  const [headlineDone, setHeadlineDone] = useState(false);
+
 
   const phrases = [
-    "Designing N-tier Architectures...",
-    "Integrating Enterprise LLMs...",
-    "Building High-Performance Full Stack Applications..."
+    "Architecting High-Performance Ecosystems",
+    "Integrating Enterprise LLMs",
   ];
 
+
+  const headlineFull = "I'm a Full Stack Software Developer";
+
+
+
   useEffect(() => {
-    let ticker = setInterval(() => {
-      tick();
+    const ticker = setInterval(() => {
+      if (!headlineDone) return;
+      // Tick phrase typewriter after main headline animation completes.
+      const fullText = phrases[phraseIndex];
+      const nextText = isDeleting
+        ? fullText.substring(0, text.length - 1)
+        : fullText.substring(0, text.length + 1);
+
+      setText(nextText);
+
+      if (isDeleting) {
+        setDelta(50);
+      }
+
+      if (!isDeleting && nextText === fullText) {
+        setIsDeleting(true);
+        setDelta(2500); // Hold phrase
+      } else if (isDeleting && nextText === '') {
+        setIsDeleting(false);
+        setPhraseIndex((prev) => (prev + 1) % phrases.length);
+        setDelta(100);
+      }
     }, delta);
 
     return () => clearInterval(ticker);
-  }, [text, isDeleting, delta, phraseIndex]);
+  }, [headlineDone, phrases, phraseIndex, isDeleting, text.length, delta]);
 
-  const tick = () => {
-    let fullText = phrases[phraseIndex];
-    let updatedText = isDeleting
-      ? fullText.substring(0, text.length - 1)
-      : fullText.substring(0, text.length + 1);
 
-    setText(updatedText);
+  useEffect(() => {
+    if (headlineDone) return;
+    let raf: number;
+    const start = performance.now();
+    const stepMs = 24;
 
-    if (isDeleting) {
-      setDelta(50);
-    }
+    const loop = (now: number) => {
+      const elapsed = now - start;
+      const nextLen = Math.min(headlineFull.length, Math.floor(elapsed / stepMs));
+      const next = headlineFull.slice(0, nextLen);
+      setTypedHeadline(next);
 
-    if (!isDeleting && updatedText === fullText) {
-      setIsDeleting(true);
-      setDelta(2500); // Hold phrase
-    } else if (isDeleting && updatedText === '') {
-      setIsDeleting(false);
-      setPhraseIndex((prev) => (prev + 1) % phrases.length);
-      setDelta(100);
-    }
-  };
+      if (nextLen >= headlineFull.length) {
+        setHeadlineDone(true);
+        return;
+      }
+      raf = requestAnimationFrame(loop);
+    };
+
+    raf = requestAnimationFrame(loop);
+    return () => cancelAnimationFrame(raf);
+  }, [headlineDone, headlineFull]);
+
+
+
+
 
   // Live Stats Logic (Dev M9a7eb killer feature)
   const [cpu, setCpu] = useState(12.4);
@@ -73,7 +107,8 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex items-center pt-28 pb-16 overflow-hidden bg-bg-dark transition-colors duration-500">
+    <section className="relative min-h-screen flex items-center pt-28 pb-16 overflow-hidden transition-colors duration-500 bg-bg-dark">
+
       {/* Deep Space Background Grids */}
       <div className="absolute inset-0 bg-cyber-grid opacity-25 pointer-events-none z-0" />
       
@@ -97,10 +132,39 @@ export default function Hero() {
               <span>SYSTEM.STATUS // CORE.MATRIX.ONLINE</span>
             </div>
             
-            <h1 className="text-5xl md:text-7xl font-display font-black leading-[1.05] mb-4 text-text-primary uppercase tracking-tight">
-              Nadhem <br />
-              <span className="text-gradient-cyber">Soumri</span>
-            </h1>
+            <div className="flex items-start gap-5">
+              <div className="flex-1">
+                <h1 className="text-5xl md:text-7xl font-display font-black leading-[1.05] mb-4 text-text-primary uppercase tracking-tight">
+                  Nadhem <br />
+                  <span className="text-gradient-cyber">Soumri</span>
+                </h1>
+
+                <h2 className="text-2xl md:text-3xl font-display font-black text-text-primary tracking-tight">
+                  <span className="text-gradient-cyber">{typedHeadline}</span>
+                  <span className="inline-block w-[2px] h-7 md:h-8 ml-1 align-middle bg-neon-orange/90 animate-pulse" aria-hidden />
+                </h2>
+              </div>
+
+              {/* Smart Avatar Display (glass + neon ring) */}
+              <div className="relative w-28 h-28 md:w-36 md:h-36 flex-shrink-0">
+                <div className="absolute inset-0 rounded-full bg-neon-orange/10 blur-[18px] opacity-60 animate-pulse-slow" />
+                <div className="absolute -inset-3 rounded-full border border-neon-orange/30 shadow-[0_0_30px_var(--color-neon-orange)] opacity-70" />
+
+                <div className="absolute inset-0 rounded-full glass-card border-neon-violet/30 border-2 p-[6px]">
+                  <div className="relative w-full h-full rounded-full overflow-hidden">
+                    <img
+                      src="/images/nadhem.png"
+                      alt="Nadhem Soumri"
+                      className="absolute inset-0 w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-neon-violet/15 via-transparent to-neon-orange/10" />
+                  </div>
+                </div>
+
+                <div className="absolute -bottom-2 -right-2 w-6 h-6 rounded-full bg-neon-amber/20 border border-neon-amber/40 shadow-[0_0_20px_var(--color-glow)]" />
+              </div>
+            </div>
+
             
             {/* Terminal typewriter area */}
             <div className="h-16 md:h-12 w-full mb-8">
