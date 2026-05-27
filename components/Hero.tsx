@@ -188,7 +188,7 @@ export default function Hero() {
                 <Link href="https://github.com/nadhemDev" target="_blank" className="p-3.5 rounded-xl bg-white/5 dark:bg-black/30 border border-border-dark text-text-secondary hover:border-neon-orange hover:text-neon-orange hover:shadow-[0_0_15px_var(--color-glow)] transition-all">
                   <Github className="w-5 h-5" />
                 </Link>
-                <Link href="https://www.linkedin.com/in/nadhem-soumri-621bb3213/" target="_blank" className="p-3.5 rounded-xl bg-white/5 dark:bg-black/30 border border-border-dark text-text-secondary hover:border-neon-amber hover:text-neon-amber hover:shadow-[0_0_15px_var(--color-glow)] transition-all">
+                <Link href="https://www.linkedin.com/in/nadhem-soumri/" target="_blank" className="p-3.5 rounded-xl bg-white/5 dark:bg-black/30 border border-border-dark text-text-secondary hover:border-neon-amber hover:text-neon-amber hover:shadow-[0_0_15px_var(--color-glow)] transition-all">
                   <Linkedin className="w-5 h-5" />
                 </Link>
                 <Link href="mailto:nadhemsoumri2@gmail.com" className="p-3.5 rounded-xl bg-white/5 dark:bg-black/30 border border-border-dark text-text-secondary hover:border-neon-violet hover:text-neon-violet hover:shadow-[0_0_15px_var(--color-glow)] transition-all">
