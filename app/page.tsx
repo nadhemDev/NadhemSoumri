@@ -43,7 +43,7 @@ export default function Home() {
                 Secure Connection
               </h2>
               <p className="text-xl text-text-secondary mb-8 font-light leading-relaxed">
-                Ready to architect next-gen enterprise solutions or AI integrations? Open a channel and let's deploy your vision into reality.
+                Ready to architect next-gen enterprise solutions or AI integrations? Open a channel and let&apos;s deploy your vision into reality.
               </p>
               
               <div className="space-y-4 text-text-primary font-mono">
@@ -72,3 +72,4 @@ export default function Home() {
     </>
   );
 }
+

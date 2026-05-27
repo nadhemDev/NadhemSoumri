@@ -29,7 +29,7 @@ export default function Hero() {
   useEffect(() => {
     const ticker = setInterval(() => {
       if (!headlineDone) return;
-      // Tick phrase typewriter after main headline animation completes.
+
       const fullText = phrases[phraseIndex];
       const nextText = isDeleting
         ? fullText.substring(0, text.length - 1)
@@ -52,7 +52,8 @@ export default function Hero() {
     }, delta);
 
     return () => clearInterval(ticker);
-  }, [headlineDone, phrases, phraseIndex, isDeleting, text.length, delta]);
+  }, [headlineDone, phraseIndex, isDeleting, text.length, delta]);
+
 
 
   useEffect(() => {
@@ -127,10 +128,7 @@ export default function Hero() {
             transition={{ duration: 0.8 }}
             className="lg:col-span-7 flex flex-col items-start"
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white/5 dark:bg-black/50 border border-border-dark text-neon-orange text-xs font-mono mb-6 backdrop-blur-md shadow-sm">
-              <Cpu className="w-4 h-4 animate-spin-slow text-neon-orange" />
-              <span>SYSTEM.STATUS // CORE.MATRIX.ONLINE</span>
-            </div>
+           
             
             <div className="flex items-start gap-5">
               <div className="flex-1">
@@ -153,7 +151,7 @@ export default function Hero() {
                 <div className="absolute inset-0 rounded-full glass-card border-neon-violet/30 border-2 p-[6px]">
                   <div className="relative w-full h-full rounded-full overflow-hidden">
                     <img
-                      src="/images/nadhem.png"
+                      src="/images/nadhem.jpg"
                       alt="Nadhem Soumri"
                       className="absolute inset-0 w-full h-full object-cover"
                     />

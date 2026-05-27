@@ -49,7 +49,7 @@ export default function Footer() {
           <div>
             <h4 className="text-white font-bold mb-6">Contact Info</h4>
             <ul className="space-y-4 text-sm text-slate-400">
-              <li>Paris, France / Remote</li>
+              <li>Tunisie</li>
               <li>nadhemsoumri2@gmail.com</li>
             </ul>
           </div>

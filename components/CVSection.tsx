@@ -72,7 +72,7 @@ export default function CVSection() {
             viewport={{ once: true }}
           >
             <Link 
-              href="/nadhem_soumri_2026.pdf" 
+              href="/Nadhem_Soumri_Resume_v2.pdf" 
               target="_blank" 
               className="btn-cyber px-8 py-4 text-base font-mono font-bold tracking-wider group flex items-center gap-3 shadow-[0_0_20px_var(--color-glow)]"
             >
