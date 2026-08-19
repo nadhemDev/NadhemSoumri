@@ -60,6 +60,45 @@ const projects = [
       "latency": "Real-time sync",
       "role": "Lead Architect"
     }
+  },
+  {
+    title: "E-Commerce AI Platform",
+    description: "Next-gen headless e-commerce store with AI-powered personal recommendations and dynamic inventory management.",
+    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&q=80&w=800",
+    tags: ["Next.js", "Stripe", "AI Recommendations", "PostgreSQL"],
+    type: "COMMERCE.AI",
+    category: "ENTERPRISE & SAAS",
+    metrics: {
+      "tps": "Global Delivery",
+      "latency": "Fast Checkout",
+      "role": "Full Stack Lead"
+    }
+  },
+  {
+    title: "Real Estate Vitrine 3D",
+    description: "Immersive property showcase platform with 3D tours, fast image rendering, and integrated CRM for lead capture.",
+    image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&q=80&w=800",
+    tags: ["React Three Fiber", "Next.js", "Tailwind", "CRM Auth"],
+    type: "WEBGL.IMMERSION",
+    category: "ENTERPRISE & SAAS",
+    metrics: {
+      "tps": "High fidelity",
+      "latency": "60 FPS rendering",
+      "role": "Frontend Architect"
+    }
+  },
+  {
+    title: "Automated Data Pipeline",
+    description: "Enterprise scale data aggregation tool automating ETL tasks across legacy systems into modern cloud data warehouses.",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800",
+    tags: ["Python", "Airflow", "AWS", "Snowflake"],
+    type: "DATA.INFRA",
+    category: "AI & LLM",
+    metrics: {
+      "tps": "100GB/day",
+      "latency": "Zero Downtime",
+      "role": "Data Engineer"
+    }
   }
 ];
 
@@ -106,7 +145,7 @@ export default function ProjectsShowcase() {
           >
             <div className="flex items-center gap-2">
               <Server className="w-4 h-4 text-neon-violet" />
-              <span>ACTIVE_MODULES: <strong className="text-text-primary">4</strong></span>
+              <span>ACTIVE_MODULES: <strong className="text-text-primary">{projects.length}</strong></span>
             </div>
             <div className="w-px h-6 bg-border-dark"></div>
             <div className="flex items-center gap-2">

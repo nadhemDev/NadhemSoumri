@@ -6,11 +6,13 @@ import ProjectsShowcase from '@/components/ProjectsShowcase';
 import Workflow from '@/components/Workflow';
 import ContactForm from '@/components/ContactForm';
 import Footer from '@/components/Footer';
+import AIWelcomeModal from '@/components/AIWelcomeModal';
 import { Hexagon } from 'lucide-react';
 
 export default function Home() {
   return (
     <>
+      <AIWelcomeModal />
       <main className="min-h-screen bg-bg-dark selection:bg-neon-violet/30 selection:text-neon-amber transition-colors duration-500">
         
         {/* Section 01 // Hero */}
@@ -37,7 +39,7 @@ export default function Home() {
           <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center relative z-10">
             <div>
               <div className="flex items-center gap-3 mb-4 text-neon-violet font-mono text-sm tracking-widest uppercase">
-                <Hexagon className="w-4 h-4" /> 06 // Transmission
+                <Hexagon className="w-4 h-4" /> 07 // Transmission
               </div>
               <h2 className="text-5xl font-display font-black mb-6 text-gradient-cyber leading-tight">
                 Secure Connection
